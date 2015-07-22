@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Neighborhood Map</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwHAmyulXIjIcsN1p_1owl3m_-mc3Udyg&libraries=places"></script>
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <div id="greeting" class="greeting">
+      <span class="greet" data-bind="text: pageTitle"></span>
+      <span class="directions" data-bind="text: pageDirections"></span>
+    </div>
+
+    <div class="search">
+      <form id="form-container" class="form-container">
+          <label for="search">Address or city: </label>
+          <input type="text" id="address" placeholder="(e.g. New York, NY)">
+          <button data-bind="click: $root.geocodeAddress" id="submit-btn">Search</button>
+      </form>
+    </div>
+
+    <div class="refine" data-bind="visible: showRefineContainer">
+      <form id="refine-form-container" class="refine-form-container" >
+        <label for="refine">Place of interest: </label>
+        <input type="text" id="refine" placeholder="(e.g. restaurants)" data-bind="value: refineForm">
+        <button data-bind="click: $root.locMarker" id="submit-btn">Refine</button>
+      </form>
+    </div>
+
+    <div class="map" id="map-canvas"></div>
+
+    <div class="list" data-bind="visible: showMarkerList">
+        <h3 id="marker-list-header" data-bind="text: modelData.markerListTitle"></h3>
+        <p>Filter results: <input data-bind="value: filter, valueUpdate: 'afterkeydown'"></p>
+        <ol id="marker-list" data-bind="foreach: filteredResults">
+          <li data-bind="text: name, click: $root.infoWindow.bind($index, $data)"></li>
+        </ol>
+        <span data-bind="text: modelData.markerListFoot"></span>
+    </div>
+
+    <div class="wiki" data-bind="visible: showWikiSnippet">
+        <h3 id="wiki-header" data-bind="text: wikiHeader"></h3>
+        <ul id="wiki-snippet" data-bind="">
+          <span data-bind="html: wikiLinksHtml"></span>
+        </ul>
+    </div>
+
+  </div>
+
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/knockout-3.3.0.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
