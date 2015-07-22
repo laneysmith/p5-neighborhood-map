@@ -1,7 +1,7 @@
 ## Udacity Front-End Web Developer Nanodegree
 ### Project 4 - Neighborhood Map
 
-The purpose of this app is to allow users to search for places of interest in a city or neighborhood & learn more about them. Visit http://laneysmith.github.io/neighborhood-map/ to try the app.
+The purpose of this app is to allow users to search for places of interest in a city or neighborhood & learn more about them. Visit http://laneysmith.github.io/p5-neighborhood-map/ to try the app.
 
 #### Directions
 
